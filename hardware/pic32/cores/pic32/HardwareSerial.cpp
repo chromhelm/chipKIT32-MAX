@@ -127,7 +127,7 @@ void __attribute__((interrupt(),nomips16)) IntSer7Handler(void);
 **		any global variables used by the object.
 */
 
-#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX47X__)
+#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
 HardwareSerial::HardwareSerial(p32_uart * uartT, int irqT, int vecT, int iplT, int splT, isrFunc isrHandler, int pinT, int pinR, ppsFunctionType ppsT, ppsFunctionType ppsR)
 #else
 HardwareSerial::HardwareSerial(p32_uart * uartT, int irqT, int vecT, int iplT, int splT, isrFunc isrHandler)
@@ -142,8 +142,7 @@ HardwareSerial::HardwareSerial(p32_uart * uartT, int irqT, int vecT, int iplT, i
 	spl  = (uint8_t)splT;
     isr  = isrHandler;
     rxIntr = NULL;
-
-#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX47X__)
+#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__)  || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
 	pinTx = (uint8_t)pinT;
 	pinRx = (uint8_t)pinR;
 	ppsTx = ppsT;
@@ -195,7 +194,7 @@ void HardwareSerial::begin(unsigned long baudRate)
 	*/
 	purge();
 
-#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX47X__)
+#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
 	/* Map the UART TX to the appropriate pin.
 	*/
     mapPps(pinTx, ppsTx);

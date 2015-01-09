@@ -89,7 +89,7 @@ class HardwareSerial : public Stream
 		uint8_t			vec;		//interrupt vector for the UART
 		uint8_t			ipl;		//interrupt priority level
 		uint8_t			spl;		//interrupt sub-priority level
-#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX47X__)
+#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
 		uint8_t			pinTx;		//digital pin number of TX
 		uint8_t			pinRx;		//digital pin number for RX
 		ppsFunctionType	ppsTx;		//PPS select for UART TX
@@ -105,7 +105,7 @@ class HardwareSerial : public Stream
         void            (*rxIntr)(int); // Interrupt callback routine
 
 	public:
-#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX47X__)
+#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
 		HardwareSerial(p32_uart * uartP, int irq, int vec, int ipl, int spl, isrFunc isrHandler, int pinT, int pinR, ppsFunctionType ppsT, ppsFunctionType ppsR);
 #else
 		HardwareSerial(p32_uart * uartP, int irq, int vec, int ipl, int spl, isrFunc isrHandler);

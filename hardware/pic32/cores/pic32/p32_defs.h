@@ -106,7 +106,7 @@ typedef struct {
 
 /* This structure describes the register layout of an I/O port.
 */
-#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX47X__)
+#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
 typedef struct {
     union
     {
@@ -571,9 +571,9 @@ typedef struct {
 /*			Peripheral Pin Select Output Declarations			*/
 /* ------------------------------------------------------------ */
 
-/* Currently, PPS is only supported in PIC32MX1xx/PIC32MX2xx/PIC32MX47X devices.
+/* Currently, PPS is only supported in PIC32MX1xx/PIC32MX2xx/PIC32MX37X/PIC32MX47X devices.
 */
-#if defined(__PIC32MX47X__)
+#if defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
 
 #define _PPS_SET_A  0x0100
 #define _PPS_SET_B  0x0200
@@ -711,7 +711,7 @@ typedef uint32_t p32_ppsin;
 #define _PPS_RPC2       (12 + _PPS_SET_D)
 #define _PPS_RPE8       (13 + _PPS_SET_D)
 
-#if defined(__PIC32MX47XL__)
+#if defined(__PIC32MX37XL__) || defined(__PIC32MX47XL__)
 #define _PPS_RPA14R    0
 #define _PPS_RPA15R    1
 #define _PPS_RPB0R    2
