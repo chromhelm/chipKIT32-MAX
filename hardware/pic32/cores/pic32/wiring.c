@@ -250,7 +250,7 @@ void	_board_init(void);
 //*
 /* Currently, PPS is only available in PIC32MX1xx/PIC32MX2xx devices.
 */
-#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZ__) || defined(__PIC32MX47X__)
+#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZ__) || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
 
 // Locks all PPS functions so that calls to mapPpsInput() or mapPpsOutput() always fail.
 // You would use this function if you set up all of your PPS settings at the beginning
