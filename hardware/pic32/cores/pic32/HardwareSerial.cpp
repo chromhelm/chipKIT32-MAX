@@ -213,7 +213,8 @@ void HardwareSerial::begin(unsigned long baudRate)
         // MZ has 2 more vectors to worry about
 #if defined(__PIC32MZXX__)
 
-        static uint32_t * const pISROffset = ((uint32_t *) &OFF000);
+//  What is this supposed to be doing?
+//        static uint32_t * const pISROffset = ((uint32_t *) &OFF000);
 
         // the MZ part works off of offset tables
         // we must fill in the tx and rx VECs to point
@@ -659,6 +660,14 @@ void USBSerial::begin(unsigned long baudRate)
 //*******************************************************************************************
 void USBSerial::end()
 {
+}
+
+//*******************************************************************************************
+extern "C" uint8_t *cdcacm_get_line_coding();
+unsigned long USBSerial::getBaudRate() {
+    uint8_t *line_coding = cdcacm_get_line_coding();
+    uint32_t br = line_coding[0] | (line_coding[1] << 8) | (line_coding[2] << 16) | (line_coding[3] << 24);
+    return br;
 }
 
 //*******************************************************************************************
