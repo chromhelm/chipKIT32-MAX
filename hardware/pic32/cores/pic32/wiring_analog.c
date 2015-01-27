@@ -441,7 +441,7 @@ int	_board_analogWrite(uint8_t pin, int val);
             if ((pwm_active & pwm_mask) == 0)
             {
 
-		    #if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
+#if defined(__PIC32MX1XX__) || defined(__PIC32MX2XX__) || defined(__PIC32MZXX__) || defined(__PIC32MX37X__) || defined(__PIC32MX47X__)
                 volatile uint32_t *	pps;
 
                 /* On devices with peripheral pin select, it is necessary to connect
